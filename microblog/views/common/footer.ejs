@@ -1,0 +1,50 @@
+<hr>
+<p class="text-center">@了凡-web前端开发</p>
+<!--//模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">切换头像</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="/users/savePhoto" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="image" class="col-sm-2 control-label">选择头像</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image" id="image" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    //导航点击选中
+    var PAGE = "<%= title%>";
+    if(PAGE == '首页'){
+        $('.home').addClass('active')
+    }else if(PAGE == '注册') {
+        $('.reg').addClass('active')
+    }else if(PAGE == '登录') {
+        $('.login').addClass('active')
+    }else if(PAGE == '发表文章') {
+        $('.article').addClass('active')
+    }
+    //警告框小时
+    $('.alert').slideUp(2000);
+</script>
+</body>
+</html>

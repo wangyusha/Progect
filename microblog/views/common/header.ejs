@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .photo-img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Microblog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="home"><a href="/">首页 </a></li>
+                <% if( !user){%>
+                <li class="login"><a href="login">登入</a></li>
+                <li class="reg"><a href="/reg">注册</a></li>
+                <%}else{%>
+                <li class="article"><a href="/article">发表文章</a></li>
+                <li class="reg"><a href="/logout">退出</a></li>
+                <%}%>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-toggle="modal" data-target="#myModal"><a href="javascript:;">
+                        <%if(user){%>
+                            <img class="photo-img" src="<%=user.photoImg%>" alt="" />
+                        <%}%>
+
+                    </a>
+                </li>
+                <%if(user){%>
+                  <li class="active"><a href="#"><%=user.username%></a></li>
+                <%}%>
+
+            </ul>
+        </div>
+
+        <!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<%if(success.length){%>
+<div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%=success%></div>
+<%}%>
+<%if(error.length){%>
+<div class="alert alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%=error%></div>
+<%}%>

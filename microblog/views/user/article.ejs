@@ -1,0 +1,29 @@
+<!--公共头部-->
+<%include ../common/header.ejs %>
+<div class="container">
+    <h3>发表文章</h3>
+    <hr>
+    <form class="form-horizontal" action="/users/addArticle" method="post">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">标题</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" id="inputEmail3" placeholder="请填写标题">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">内容</label>
+            <div class="col-sm-10">
+                <textarea rows="6" style="resize: none" class="form-control" name="content" id="inputPassword3" placeholder="请填写发表内容"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--公共底部-->
+<%include ../common/footer.ejs %>
+
+

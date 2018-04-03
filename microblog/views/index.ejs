@@ -1,0 +1,29 @@
+<!--公共头部-->
+<%include ./common/header.ejs %>
+<div class="container">
+    <div class="jumbotron">
+        <h2>欢迎来到了凡的博客</h2>
+        <p>这是一个技术 分享的博客！</p>
+        <%if(!user){%>
+        <p>
+            <a class="btn btn-primary btn-sm" href="#" role="button">登录</a>
+            <a class="btn btn-default  btn-sm" href="#" role="button">立即注册</a>
+        </p>
+        <%}%>
+
+    </div>
+    <div class="row">
+        <%articleList.forEach(function (item) { %>
+        <div class="col-md-4">
+            <h2> <%=item.title%></h2>
+            <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 作者：<%=item.author%></h4>
+            <p><span class="glyphicon glyphicon-time bg-danger" aria-hidden="true"></span> 时间：<%=item.creatAt.toLocaleString()%></p>
+            <p><strong>发表内容：</strong><%=item.content%></p>
+        </div>
+        <%})%>
+    </div>
+</div>
+<!--公共底部-->
+<%include ./common/footer.ejs %>
+
+
