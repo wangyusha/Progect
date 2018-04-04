@@ -78,6 +78,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-// 此处有修改
-
 module.exports = app;
